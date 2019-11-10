@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
+/*Route::get('/about', function () {
     return view('about');
+});*/
+
+$team = [
+    ['name' => 'Hodor', 'position' => 'programmer'],
+    ['name' => 'Joker', 'position' => 'CEO'],
+    ['name' => 'Elvis', 'position' => 'CTO'],
+];
+
+Route::get('/about', function () use ($team) {
+    // BEGIN (write your solution here)
+    return view('about', ['team' => $team]);
+    // END
 });
