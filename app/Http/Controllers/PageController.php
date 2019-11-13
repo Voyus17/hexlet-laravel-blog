@@ -3,12 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class PageController extends Controller
 {
     public function about()
     {
-        $name = "Yuriy";
-        return view('pages.about')->with('name', $name);
+        $team = [
+            ['name' => 'Hodor', 'position' => 'programmer'],
+            ['name' => 'Joker', 'position' => 'CEO'],
+            ['name' => 'Elvis', 'position' => 'CTO'],
+        ];
+        return view('about')->with('team', $team);
     }
+
+    public function articles()
+    {
+        $articles = Article::paginate(3);
+        $url = route('articles');
+        return view('articles')->with(['articles'=>$articles, 'url'=>$url]);
+    }
+
 }
+
+
