@@ -5,15 +5,8 @@
 @section('header', 'Статьи')
 <!-- Секция, содержащая HTML блок. Имеет открывающую и закрывающую часть. -->
 @section('content')
-
-    ----------------------
-    @foreach ($articles as $art)
-        <h4> <a href="/articles/{{ $art->id }}">{{ $art->name }}</a>  </h4>
-        <p>{{Str::limit($art->body, 10) }}</p>
-        -------------------------
-    @endforeach
-    {{ $articles->links() }}
-
+    <h2>{{ $article->name }}</h2>
+    <p>{{ $article->body }}</p>
 @endsection
 
 

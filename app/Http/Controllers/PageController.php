@@ -24,6 +24,12 @@ class PageController extends Controller
         return view('articles')->with(['articles'=>$articles, 'url'=>$url]);
     }
 
+    public function show($id)
+    {
+        $article = Article::FindOrFail($id);
+        return view('article', compact('article'));
+    }
+
 }
 
 

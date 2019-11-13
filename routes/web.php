@@ -26,3 +26,5 @@ Route::get('about', 'PageController@about');
 
 
 Route::get('/articles', 'PageController@articles')->name('articles');
+Route::get('/articles/{id}', 'PageController@show')->name('article');
+
